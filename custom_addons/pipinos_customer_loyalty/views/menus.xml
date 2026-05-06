@@ -14,6 +14,9 @@
     <menuitem id="menu_loyalty_config" name="Konfigurasi Status Level" parent="menu_data_root" action="action_pipinos_loyalty_level_config" sequence="7"/>
     <menuitem id="menu_admin_point_conversion_config" name="Konfigurasi Konversi Poin" parent="menu_data_root" action="action_pipinos_point_conversion_config" sequence="8"/>
 
+    <menuitem id="menu_mille_sync" name="Sinkronisasi ke Mille" parent="menu_data_root" action="action_pipinos_mille_sync" sequence="9"/>
+    <menuitem id="menu_sync_log" name="Log Sinkronisasi" parent="menu_data_root" action="action_pipinos_sync_log" sequence="10"/>
+
     <menuitem id="menu_dashboard_root" name="Dashboard Analitik" parent="menu_root" sequence="2"/>
     
     <menuitem id="menu_dashboard_age_gender" name="Avg Usia per Gender" parent="menu_dashboard_root" action="action_pipinos_dashboard_age_gender" sequence="1"/>

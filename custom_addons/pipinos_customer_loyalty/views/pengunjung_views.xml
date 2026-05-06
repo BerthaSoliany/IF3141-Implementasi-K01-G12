@@ -126,6 +126,7 @@
                     <group>
                         <field name="nama_segmen"/>
                         <field name="kriteria"/>
+                        <field name="deskripsi"/>
                     </group>
                 </sheet>
             </form>

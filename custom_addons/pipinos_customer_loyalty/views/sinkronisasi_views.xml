@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_mille_sync_form" model="ir.ui.view">
+        <field name="name">pipinos.mille.sync.form</field>
+        <field name="model">pipinos.mille.sync</field>
+        <field name="arch" type="xml">
+            <form string="Sinkronisasi Data ke Sistem Mille">
+                <group>
+                    <field name="mille_api_url"/>
+                </group>
+                <group invisible="not hasil">
+                    <field name="hasil" readonly="1"/>
+                </group>
+                <footer>
+                    <button name="action_sync" string="Mulai Sinkronisasi" type="object" class="btn-primary"/>
+                    <button string="Tutup" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_pipinos_mille_sync" model="ir.actions.act_window">
+        <field name="name">Sinkronisasi Data Mille</field>
+        <field name="res_model">pipinos.mille.sync</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <record id="view_sync_log_tree" model="ir.ui.view">
+        <field name="name">pipinos.sync.log.tree</field>
+        <field name="model">pipinos.sync.log</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="waktu_sync"/>
+                <field name="status" widget="badge"
+                       decoration-success="status=='sukses'"
+                       decoration-danger="status=='gagal'"/>
+                <field name="jumlah_pelanggan"/>
+                <field name="jumlah_loyalty"/>
+                <field name="pesan"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_pipinos_sync_log" model="ir.actions.act_window">
+        <field name="name">Log Sinkronisasi</field>
+        <field name="res_model">pipinos.sync.log</field>
+        <field name="view_mode">tree</field>
+    </record>
+</odoo>
