@@ -15,10 +15,27 @@ class LoyaltyMember(models.Model):
         ('gold', 'Gold'),
         ('platinum', 'Platinum'),
     ], string='Status Level', compute='_compute_status_level', store=True)
+    reward_info = fields.Char(string='Info Reward', compute='_compute_reward_info', store=False)
 
     _sql_constraints = [
         ('unique_pengunjung_loyalty', 'unique(id_pengunjung)', 'pengunjung ini sudah terdaftar di sistem loyalty!')
     ]
+
+    @api.depends('status_level', 'total_poin')
+    def _compute_reward_info(self):
+        today = fields.Date.today()
+        kampanye_aktif = self.env['pipinos.kampanye'].search([
+            ('tgl_mulai', '<=', today),
+            ('tgl_selesai', '>=', today),
+        ])
+        level_labels = {'silver': 'Member Silver', 'gold': 'Member Gold', 'platinum': 'Member Platinum'}
+        for rec in self:
+            label = level_labels.get(rec.status_level, 'Member Silver')
+            if kampanye_aktif:
+                nama = ', '.join(kampanye_aktif.mapped('nama_kampanye'))
+                rec.reward_info = f"{label} | Kampanye Aktif: {nama}"
+            else:
+                rec.reward_info = label
 
     @api.depends('total_poin')
     def _compute_status_level(self):

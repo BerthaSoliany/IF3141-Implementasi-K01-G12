@@ -156,6 +156,7 @@ class SegmenPengunjung(models.Model):
     id_segmen = fields.Char(string='ID Segmen', required=True, copy=False, readonly=True, default=lambda self: 'Baru')
     nama_segmen = fields.Char(string='Nama Segmen')
     kriteria = fields.Text(string='Kriteria')
+    deskripsi = fields.Text(string='Deskripsi')
     terdaftar_ids = fields.One2many('pipinos.terdaftar', 'segmen_id', string='Data Pendaftaran')
     pengunjung_ids = fields.Many2many('pipinos.pengunjung', string='pengunjung Terdaftar', compute='_compute_pengunjung_ids')
 

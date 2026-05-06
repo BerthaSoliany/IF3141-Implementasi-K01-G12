@@ -8,16 +8,43 @@ class Transaksi(models.Model):
     id_transaksi = fields.Char(string='ID Transaksi', required=True, copy=False, readonly=True, default=lambda self: 'Baru')
     id_pengunjung = fields.Many2one('pipinos.pengunjung', string='pengunjung (FK)')
     tanggal = fields.Datetime(string='Tanggal Transaksi', default=fields.Datetime.now)
-    total_nominal = fields.Float(string='Total Nominal')
-
     detail_ids = fields.One2many('pipinos.detail.transaksi', 'id_transaksi', string='Rincian Menu')
+    total_nominal = fields.Float(string='Total Nominal', compute='_compute_total_nominal', store=True, readonly=False)
+
+    @api.depends('detail_ids.subtotal')
+    def _compute_total_nominal(self):
+        for rec in self:
+            rec.total_nominal = sum(rec.detail_ids.mapped('subtotal'))
+
+    def _auto_update_loyalty_points(self):
+        config = self.env['pipinos.point.conversion.config'].search(
+            [('active', '=', True)], limit=1, order='id desc'
+        )
+        if not config or config.nominal_rupiah <= 0 or not self.id_pengunjung:
+            return
+        poin = int(self.total_nominal / config.nominal_rupiah) * config.point_value
+        if poin <= 0:
+            return
+        loyalty = self.env['pipinos.loyalty.member'].search(
+            [('id_pengunjung', '=', self.id_pengunjung.id)], limit=1
+        )
+        if loyalty:
+            loyalty.total_poin += poin
+        else:
+            self.env['pipinos.loyalty.member'].create({
+                'id_pengunjung': self.id_pengunjung.id,
+                'total_poin': poin,
+            })
 
     @api.model_create_multi
     def create(self, vals_list):
         for vals in vals_list:
             if vals.get('id_transaksi', 'Baru') == 'Baru':
                 vals['id_transaksi'] = self.env['ir.sequence'].next_by_code('pipinos.transaksi') or 'Baru'
-        return super().create(vals_list)
+        records = super().create(vals_list)
+        for record in records:
+            record._auto_update_loyalty_points()
+        return records
 
 
 class DetailTransaksi(models.Model):
@@ -29,7 +56,12 @@ class DetailTransaksi(models.Model):
     id_pengunjung = fields.Many2one('pipinos.pengunjung', string='pengunjung (FK)', related='id_transaksi.id_pengunjung', store=True, readonly=True)
     id_menu = fields.Many2one('pipinos.item.menu', string='Menu (FK)')
     qty = fields.Integer(string='Qty')
-    subtotal = fields.Float(string='Subtotal')
+    subtotal = fields.Float(string='Subtotal', compute='_compute_subtotal', store=True, readonly=False)
+
+    @api.depends('id_menu', 'qty')
+    def _compute_subtotal(self):
+        for rec in self:
+            rec.subtotal = (rec.id_menu.harga or 0.0) * (rec.qty or 0)
 
     @api.model_create_multi
     def create(self, vals_list):
