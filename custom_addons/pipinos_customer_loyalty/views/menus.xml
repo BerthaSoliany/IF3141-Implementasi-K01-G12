@@ -10,7 +10,7 @@
     <menuitem id="menu_segmen" name="Segmen Pengunjung" parent="menu_data_root" action="action_pipinos_segmen" sequence="3"/>
     <menuitem id="menu_transaksi" name="Riwayat Transaksi" parent="menu_data_root" action="action_pipinos_transaksi" sequence="4"/>
     <menuitem id="menu_item" name="Menu Resto" parent="menu_data_root" action="action_pipinos_menu" sequence="5"/>
-    <menuitem id="menu_kampanye" name="Kampanye" parent="menu_data_root" action="action_pipinos_kampanye" sequence="6"/>
+    <!-- <menuitem id="menu_kampanye" name="Kampanye" parent="menu_data_root" action="action_pipinos_kampanye" sequence="6"/> -->
     <menuitem id="menu_loyalty_config" name="Konfigurasi Status Level" parent="menu_data_root" action="action_pipinos_loyalty_level_config" sequence="7"/>
     <menuitem id="menu_admin_point_conversion_config" name="Konfigurasi Konversi Poin" parent="menu_data_root" action="action_pipinos_point_conversion_config" sequence="8"/>
 
