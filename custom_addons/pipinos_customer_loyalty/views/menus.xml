@@ -19,12 +19,12 @@
 
     <menuitem id="menu_dashboard_root" name="Dashboard Analitik" parent="menu_root" sequence="2"/>
     
-    <menuitem id="menu_dashboard_age_gender" name="Avg Usia per Gender" parent="menu_dashboard_root" action="action_pipinos_dashboard_age_gender" sequence="1"/>
-    <menuitem id="menu_dashboard_gender_count" name="Count per Gender" parent="menu_dashboard_root" action="action_pipinos_dashboard_gender_count" sequence="2"/>
-    <menuitem id="menu_dashboard_segment" name="Segmen Pengunjung" parent="menu_dashboard_root" action="action_pipinos_dashboard_segment" sequence="3"/>
+    <menuitem id="menu_dashboard_age_gender" name="Rerata Usia Pengunjung" parent="menu_dashboard_root" action="action_pipinos_dashboard_age_gender" sequence="1"/>
+    <menuitem id="menu_dashboard_gender_count" name="Total Pengunjung per Jenis Kelamin" parent="menu_dashboard_root" action="action_pipinos_dashboard_gender_count" sequence="2"/>
+    <menuitem id="menu_dashboard_segment" name="Total per Segmen Pengunjung" parent="menu_dashboard_root" action="action_pipinos_dashboard_segment" sequence="3"/>
     <menuitem id="menu_dashboard_visit_frequency" name="Frekuensi Kunjungan" parent="menu_dashboard_root" action="action_pipinos_dashboard_visit_frequency" sequence="4"/>
-    <menuitem id="menu_dashboard_status_level" name="Count Status Level" parent="menu_dashboard_root" action="action_pipinos_dashboard_status_level" sequence="5"/>
+    <menuitem id="menu_dashboard_status_level" name="Total per Status Level" parent="menu_dashboard_root" action="action_pipinos_dashboard_status_level" sequence="5"/>
     <menuitem id="menu_dashboard_favorite_menu" name="Menu Favorit Pengunjung" parent="menu_dashboard_root" action="action_pipinos_dashboard_favorite_menu" sequence="6"/>
-    <menuitem id="menu_dashboard_menu_count" name="Count per Menu" parent="menu_dashboard_root" action="action_pipinos_dashboard_menu_count" sequence="7"/>
+    <menuitem id="menu_dashboard_menu_count" name="Total per Menu" parent="menu_dashboard_root" action="action_pipinos_dashboard_menu_count" sequence="7"/>
  
     </odoo>
