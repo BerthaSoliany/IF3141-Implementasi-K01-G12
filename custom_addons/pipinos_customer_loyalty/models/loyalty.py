@@ -7,7 +7,7 @@ class LoyaltyMember(models.Model):
     _rec_name = 'id_pengunjung'
 
     id_loyalty = fields.Char(string='ID Loyalty', required=True, copy=False, readonly=True, default=lambda self: 'Baru')
-    id_pengunjung = fields.Many2one('pipinos.pengunjung', string='pengunjung (FK)', required=True, ondelete='cascade')
+    id_pengunjung = fields.Many2one('pipinos.pengunjung', string='pengunjung', required=True, ondelete='cascade')
     no_hp = fields.Char(string='No HP', related='id_pengunjung.no_hp', readonly=True)
     total_poin = fields.Integer(string='Total Poin')
     status_level = fields.Selection([

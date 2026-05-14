@@ -6,7 +6,7 @@ class Transaksi(models.Model):
     _rec_name = 'id_transaksi'
 
     id_transaksi = fields.Char(string='ID Transaksi', required=True, copy=False, readonly=True, default=lambda self: 'Baru')
-    id_pengunjung = fields.Many2one('pipinos.pengunjung', string='pengunjung (FK)')
+    id_pengunjung = fields.Many2one('pipinos.pengunjung', string='pengunjung')
     tanggal = fields.Datetime(string='Tanggal Transaksi', default=fields.Datetime.now)
     detail_ids = fields.One2many('pipinos.detail.transaksi', 'id_transaksi', string='Rincian Menu')
     total_nominal = fields.Float(string='Total Nominal', compute='_compute_total_nominal', store=True, readonly=False)
@@ -52,9 +52,9 @@ class DetailTransaksi(models.Model):
     _description = 'Rincian Menu'
 
     id_detail = fields.Char(string='ID Detail', required=True, copy=False, readonly=True, default=lambda self: 'Baru')
-    id_transaksi = fields.Many2one('pipinos.transaksi', string='Transaksi (FK)')
-    id_pengunjung = fields.Many2one('pipinos.pengunjung', string='pengunjung (FK)', related='id_transaksi.id_pengunjung', store=True, readonly=True)
-    id_menu = fields.Many2one('pipinos.item.menu', string='Menu (FK)')
+    id_transaksi = fields.Many2one('pipinos.transaksi', string='Transaksi')
+    id_pengunjung = fields.Many2one('pipinos.pengunjung', string='pengunjung', related='id_transaksi.id_pengunjung', store=True, readonly=True)
+    id_menu = fields.Many2one('pipinos.item.menu', string='Menu')
     qty = fields.Integer(string='Qty')
     subtotal = fields.Float(string='Subtotal', compute='_compute_subtotal', store=True, readonly=False)
 

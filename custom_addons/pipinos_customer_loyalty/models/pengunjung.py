@@ -128,7 +128,7 @@ class Demografi(models.Model):
     _rec_name = 'id_demografi'
 
     id_demografi = fields.Char(string='ID Demografi', required=True, copy=False, readonly=True, default=lambda self: 'Baru')
-    id_pengunjung = fields.Many2one('pipinos.pengunjung', string='pengunjung (FK)', required=True, ondelete='cascade')
+    id_pengunjung = fields.Many2one('pipinos.pengunjung', string='pengunjung', required=True, ondelete='cascade')
     usia = fields.Integer(string='Usia', group_operator='avg')
     gender = fields.Selection([
         ('L', 'Laki-Laki'),
