@@ -5,6 +5,7 @@
     "author": "G12",
     "depends": ["base"],
     "data": [
+        "security/groups.xml",
         "security/ir.model.access.csv",
         "views/pengunjung_views.xml",
         "views/loyalty_views.xml",
