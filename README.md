@@ -1,3 +1,92 @@
+# PIPINOS Customer Intelligence & Loyalty System
+### Kelompok G12 | Kelas K01 | IF3141 Sistem Informasi
+
+---
+
+## Identitas Kelompok
+
+| NIM | Nama |
+|-----|------|
+| 13523001 | Wardatul Khoiroh |
+| 13523005 | Muhammad Alfansya |
+| 13523006 | William Andrian Dharma T |
+| 13523026 | Bertha Soliany Frandi |
+| 13523052 | Adhimas Aryo Bimo |
+
+---
+
+## Nama Sistem dan Perusahaan
+
+- **Sistem:** PIPINOS Customer Intelligence & Loyalty System
+- **Perusahaan:** PIPINOS
+
+---
+
+## Deskripsi Sistem
+
+PIPINOS merupakan perusahaan Food & Beverage (F&B) dan Hospitality yang beroperasi sebagai bakery-resto dengan nuansa hunian yang nyaman, akrab, dan familiar (konsep homey). PIPINOS menyajikan pilihan roti, kue, pastry, dan hidangan manis ala Eropa ditambah sentuhan lokal serta aneka hidangan bertema New America. Berlokasi di kawasan wisata dan kuliner, PIPINOS menawarkan tempat makan santai dengan pilihan ruang terbuka yang asri. Perusahaan yang dimulai dari sebuah dapur apartemen, kini berkembang menjadi bakery dan restoran yang banyak dikunjungi wisatawan dan mahasiswa.
+
+PIPINOS Customer Intelligence & Loyalty System adalah sistem informasi berbasis Odoo 17.0 yang dirancang untuk mengelola data pengunjung, program loyalitas, dan analitik pelanggan secara terintegrasi. Sistem ini memungkinkan pencatatan demografi pengunjung, pengelompokan segmen pelanggan, pencatatan riwayat transaksi, serta perhitungan poin loyalitas secara otomatis berdasarkan nominal transaksi. Selain itu, sistem mendukung sinkronisasi data dengan sistem eksternal Mille melalui mekanisme webhook dua arah, serta dilengkapi dashboard analitik untuk mendukung pengambilan keputusan bisnis.
+
+---
+
+## Cara Menjalankan Sistem
+
+### Langkah 1 — Jalankan Docker
+
+```bash
+docker compose up -d
+```
+
+![docker compose up](image/89831a59-36f6-4e90-bb94-d7f54bb74907.jpeg)
+
+### Langkah 2 — Import Database
+
+```bat
+scripts\import_db.cmd
+```
+
+![import db](image/71185ef2-26c1-42f8-a335-b10c04026d5c.jpeg)
+
+### Langkah 3 — Akses Aplikasi
+
+Buka browser, akses `http://localhost:8069`
+
+![halaman login PIPINOS](image/8fa89e87-3623-4406-af17-c7f350bcd0a1.jpeg)
+
+### Langkah 4 — Login sebagai Admin
+
+- **Username:** `admin`
+- **Password:** `admin`
+
+![tampilan admin](image/admin.jpeg)
+
+### Langkah 5 — Login sebagai Pelayan
+
+- **Email:** `pelayan@pipinos.com`
+- **Password:** `pelayan`
+
+![tampilan pelayan](image/pelayan.jpeg)
+
+---
+
+## Kredensial Role
+
+| Role | Username / Email | Password | Akses |
+|------|-----------------|----------|-------|
+| Admin | `admin` | `admin` | Full — semua menu termasuk Konfigurasi Level, Konfigurasi Poin, Sinkronisasi Mille |
+| Pelayan | `pelayan@pipinos.com` | *(set manual via Settings → Users)* | Terbatas — Data Pengunjung, Transaksi, Loyalty (read), Dashboard |
+
+---
+
+## Kesimpulan dan Saran
+
+Sistem PIPINOS Customer Intelligence & Loyalty System berhasil diimplementasikan sebagai custom module Odoo 17.0 yang mencakup manajemen data pengunjung, program loyalitas berbasis poin, pencatatan transaksi dengan perhitungan otomatis, serta integrasi data dengan sistem eksternal melalui webhook. Pemisahan akses berdasarkan role Admin dan Pelayan juga berhasil diterapkan sehingga setiap pengguna hanya dapat mengakses fitur sesuai wewenangnya.
+
+Untuk pengembangan ke depan, disarankan agar integrasi dengan sistem Mille diuji secara end-to-end dengan environment Mille yang aktif. Penambahan notifikasi otomatis kepada pelanggan saat poin atau status level berubah dapat meningkatkan nilai bisnis sistem. Validasi input pada form juga perlu diperkuat untuk memastikan integritas data dalam penggunaan produksi.
+
+---
+
 # IF3141 Sistem Informasi - Odoo Setup
 
 ## Introduction

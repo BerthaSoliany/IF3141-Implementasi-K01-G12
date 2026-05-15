@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="base.main_company" model="res.company">
+            <field name="name">PIPINOS</field>
+            <field name="logo" type="base64" file="pipinos_customer_loyalty/static/img/logo_pipinos.png"/>
+        </record>
+    </data>
+</odoo>
