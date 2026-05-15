@@ -33,7 +33,7 @@
                         <field name="no_hp" readonly="1"/>
                         <field name="total_poin"/>
                         <field name="status_level" widget="badge" decoration-warning="status_level=='gold'" decoration-info="status_level=='silver'"/>
-                        <!-- <field name="reward_info" readonly="1"/> -->
+                        <field name="reward_info" readonly="1"/>
                     </group>
                 </sheet>
             </form>
@@ -60,6 +60,7 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="name"/>
+                <field name="level"/>
                 <field name="threshold_points"/>
                 <field name="active"/>
             </tree>
@@ -74,6 +75,7 @@
                 <sheet>
                     <group>
                         <field name="name"/>
+                        <field name="level"/>
                         <field name="threshold_points"/>
                         <field name="active"/>
                     </group>

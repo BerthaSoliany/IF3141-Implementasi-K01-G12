@@ -1,14 +1,23 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_pengunjung,pipinos.pengunjung,model_pipinos_pengunjung,,1,1,1,1
-access_transaksi,pipinos.transaksi,model_pipinos_transaksi,,1,1,1,1
-access_detail,pipinos.detail.transaksi,model_pipinos_detail_transaksi,,1,1,1,1
-access_menu,pipinos.item.menu,model_pipinos_item_menu,,1,1,1,1
-access_demografi,pipinos.demografi,model_pipinos_demografi,,1,1,1,1
-access_loyalty,pipinos.loyalty.member,model_pipinos_loyalty_member,,1,1,1,1
-access_segmen,pipinos.segmen,model_pipinos_segmen,,1,1,1,1
-access_terdaftar,pipinos.terdaftar,model_pipinos_terdaftar,,1,1,1,1
-access_loyalty_level_config,pipinos.loyalty.level.config,model_pipinos_loyalty_level_config,,1,1,1,1
-access_point_conversion_config,pipinos.point.conversion.config,model_pipinos_point_conversion_config,,1,1,1,1
-access_kampanye,pipinos.kampanye,model_pipinos_kampanye,,1,1,1,1
-access_sync_log,pipinos.sync.log,model_pipinos_sync_log,,1,1,1,1
-access_mille_sync,pipinos.mille.sync,model_pipinos_mille_sync,,1,1,1,1
+access_pengunjung_admin,pipinos.pengunjung admin,model_pipinos_pengunjung,pipinos_customer_loyalty.group_pipinos_admin,1,1,1,1
+access_pengunjung_pelayan,pipinos.pengunjung pelayan,model_pipinos_pengunjung,pipinos_customer_loyalty.group_pipinos_pelayan,1,1,1,0
+access_transaksi_admin,pipinos.transaksi admin,model_pipinos_transaksi,pipinos_customer_loyalty.group_pipinos_admin,1,1,1,1
+access_transaksi_pelayan,pipinos.transaksi pelayan,model_pipinos_transaksi,pipinos_customer_loyalty.group_pipinos_pelayan,1,1,1,0
+access_detail_admin,pipinos.detail.transaksi admin,model_pipinos_detail_transaksi,pipinos_customer_loyalty.group_pipinos_admin,1,1,1,1
+access_detail_pelayan,pipinos.detail.transaksi pelayan,model_pipinos_detail_transaksi,pipinos_customer_loyalty.group_pipinos_pelayan,1,1,1,0
+access_menu_admin,pipinos.item.menu admin,model_pipinos_item_menu,pipinos_customer_loyalty.group_pipinos_admin,1,1,1,1
+access_menu_pelayan,pipinos.item.menu pelayan,model_pipinos_item_menu,pipinos_customer_loyalty.group_pipinos_pelayan,1,0,0,0
+access_demografi_admin,pipinos.demografi admin,model_pipinos_demografi,pipinos_customer_loyalty.group_pipinos_admin,1,1,1,1
+access_demografi_pelayan,pipinos.demografi pelayan,model_pipinos_demografi,pipinos_customer_loyalty.group_pipinos_pelayan,1,1,1,0
+access_loyalty_admin,pipinos.loyalty.member admin,model_pipinos_loyalty_member,pipinos_customer_loyalty.group_pipinos_admin,1,1,1,1
+access_loyalty_pelayan,pipinos.loyalty.member pelayan,model_pipinos_loyalty_member,pipinos_customer_loyalty.group_pipinos_pelayan,1,1,1,0
+access_segmen_admin,pipinos.segmen admin,model_pipinos_segmen,pipinos_customer_loyalty.group_pipinos_admin,1,1,1,1
+access_segmen_pelayan,pipinos.segmen pelayan,model_pipinos_segmen,pipinos_customer_loyalty.group_pipinos_pelayan,1,0,0,0
+access_terdaftar_admin,pipinos.terdaftar admin,model_pipinos_terdaftar,pipinos_customer_loyalty.group_pipinos_admin,1,1,1,1
+access_terdaftar_pelayan,pipinos.terdaftar pelayan,model_pipinos_terdaftar,pipinos_customer_loyalty.group_pipinos_pelayan,1,0,0,0
+access_loyalty_level_config,pipinos.loyalty.level.config,model_pipinos_loyalty_level_config,pipinos_customer_loyalty.group_pipinos_admin,1,1,1,1
+access_point_conversion_config,pipinos.point.conversion.config,model_pipinos_point_conversion_config,pipinos_customer_loyalty.group_pipinos_admin,1,1,1,1
+access_point_conversion_config_pelayan,pipinos.point.conversion.config pelayan,model_pipinos_point_conversion_config,pipinos_customer_loyalty.group_pipinos_pelayan,1,0,0,0
+access_kampanye,pipinos.kampanye,model_pipinos_kampanye,pipinos_customer_loyalty.group_pipinos_admin,1,1,1,1
+access_sync_log,pipinos.sync.log,model_pipinos_sync_log,pipinos_customer_loyalty.group_pipinos_admin,1,1,1,1
+access_mille_sync,pipinos.mille.sync,model_pipinos_mille_sync,pipinos_customer_loyalty.group_pipinos_admin,1,1,1,1
